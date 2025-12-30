@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hokim Qarorlari - SamTUIT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --samtuit-blue: #003366;
+            --samtuit-blue-light: #004d99;
+            --samtuit-emerald: #059669;
+            --samtuit-emerald-dark: #047857;
+            --hokim-orange: #ea580c;         /* Faqat hero va add-btn uchun */
+            --hokim-orange-dark: #dc4d01;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--samtuit-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--samtuit-blue);
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0;
+        }
+
+        .nav {
+            display: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav a {
+            color: var(--gray-700);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--samtuit-blue);
+        }
+
+        /* Hero Section - Hokim to‘q sariq */
+        .hero {
+            background: linear-gradient(135deg, var(--hokim-orange) 0%, var(--hokim-orange-dark) 100%);
+            color: white;
+            padding: 3rem 1.5rem;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: white;
+        }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .hero-text p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0.25rem 0 0 0;
+        }
+
+        /* Controls Section */
+        .controls {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 5rem;
+            z-index: 40;
+        }
+
+        .controls-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--gray-200);
+            font-size: 0.875rem;
+            background: var(--gray-50);
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--hokim-orange);
+            box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
+            background: white;
+        }
+
+        .controls-right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            background: var(--gray-100);
+            border-radius: 0.75rem;
+            padding: 0.25rem;
+        }
+
+        .filter-btn {
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: transparent;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover {
+            color: var(--gray-700);
+        }
+
+        .filter-btn.active {
+            background: white;
+            color: var(--gray-900);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .add-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--hokim-orange);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+        }
+
+        .add-btn:hover {
+            background: var(--hokim-orange-dark);
+            transform: translateY(-1px);
+        }
+
+        .add-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .results-info {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-info span {
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Decision Card - Prezident qarorlari bilan 100% bir xil */
+        .decision-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .decision-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+        }
+
+        .card-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-date {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-top: 0.25rem;
+        }
+
+        .card-date svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .description-container {
+            max-height: 5.5rem;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .description-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .description-container::-webkit-scrollbar-track {
+            background: var(--gray-100);
+            border-radius: 3px;
+        }
+
+        .description-container::-webkit-scrollbar-thumb {
+            background: var(--gray-400);
+            border-radius: 3px;
+        }
+
+        .description-container::-webkit-scrollbar-thumb:hover {
+            background: var(--gray-500);
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            word-wrap: break-word;
+        }
+
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.1rem;
+            background: var(--samtuit-emerald);
+            color: white;
+            border: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--samtuit-emerald-dark);
+        }
+
+        .download-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .edit-btn {
+            background: var(--samtuit-blue);
+            color: white;
+            padding: 0.65rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .edit-btn:hover {
+            background: var(--samtuit-blue-light);
+        }
+
+        .delete-btn {
+            background: var(--red-500);
+            color: white;
+            padding: 0.65rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .delete-btn:hover {
+            background: var(--red-600);
+        }
+
+        .edit-btn svg, .delete-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 3rem 1.5rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            grid-column: 1 / -1;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .footer h5 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .footer-text {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-top: 0.5rem;
+        }
+
+        .footer-section h6 {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+
+            .controls-container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+
+            .footer-brand {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .add-btn span {
+                display: none;
+            }
+
+            .card-actions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .edit-btn, .delete-btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo-section">
+                <div class="logo-icon">S</div>
+                <div class="logo-text">
+                    <h1>SamTUIT</h1>
+                    <p>Qarorlar Portali</p>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="#">Asosiy</a>
+                <a href="#">Qarorlar</a>
+                <a href="#">Farmoyishlar</a>
+                <a href="#">Yordam</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <a href="{% url 'qarorlar:qarorlar_bosh' %}" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                Orqaga qaytish
+            </a>
+            <div class="hero-content">
+                <div class="hero-icon">🏢</div>
+                <div class="hero-text">
+                    <h2>Hokim qarorlari</h2>
+                    <p>Viloyat yoki shahar hokimi tomonidan qabul qilingan qarorlar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls Section -->
+    <section class="controls">
+        <div class="controls-container">
+            <form method="get">
+                <input type="text"
+                       name="q"
+                       class="search-input"
+                       placeholder="Qaror raqami yoki kalit so'z..."
+                       value="{{ request.GET.q }}">
+            </form>
+
+            <div class="controls-right">
+                <div class="filter-group">
+                    <a href="{% url 'qarorlar:hokim_qarorlari' %}"
+                       class="filter-btn {% if not request.GET.new %}active{% endif %}">
+                        Barchasi
+                    </a>
+
+                    <a href="{% url 'qarorlar:hokim_qarorlari' %}?new=1"
+                       class="filter-btn {% if request.GET.new %}active{% endif %}">
+                        Yangilari
+                    </a>
+                </div>
+
+                <a href="{% url 'qarorlar:hqaror_add' %}" style="text-decoration:none">
+                    <button class="add-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        <span>Qaror qo'shish</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content - Cardlar -->
+    <div class="main-content">
+        <div class="results-info">
+            Jami <span>{{ len }}</span> ta qaror topildi
+        </div>
+
+        <div class="cards-grid">
+            {% for data in qarorlar %}
+            <div class="decision-card">
+                <div class="card-header">
+                    <div class="card-header-left">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="card-number">{{ data.qaror_num }}</div>
+                            <div class="card-date">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                {{ data.created_at|date:"d F, Y" }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="card-title">{{ data.title }}</h3>
+
+                {% if data.description %}
+                <div class="description-container">
+                    <p class="card-description">{{ data.description }}</p>
+                </div>
+                {% else %}
+                <p class="card-description" style="color: var(--gray-400); font-style: italic;">Tavsif mavjud emas</p>
+                {% endif %}
+
+                <div class="card-actions">
+                    <a href="{{ data.file.url }}" class="download-btn" target="_blank" download>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        Yuklash
+                    </a>
+
+                    <form method="GET" action="{% url 'qarorlar:hqaror_edit' data.id %}" style="display:inline;">
+                        <button type="submit" class="edit-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                            </svg>
+                            Tahrirlash
+                        </button>
+                    </form>
+
+                    <form method="POST" action="{% url 'qarorlar:hqaror_delete' data.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="delete-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                            O‘chirish
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {% empty %}
+            <div style="grid-column: 1 / -1; text-align: center; padding: 4rem; color: var(--gray-500); font-size: 1.125rem;">
+                Hozircha qarorlar mavjud emas
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">S</div>
+                        <h5>SamTUIT Portali</h5>
+                    </div>
+                    <p class="footer-text">
+                        Samarqand shahri, Ipak yo'li ko'chasi, 2-uy.<br>
+                        Aloqa: +998 (66) 232-29-29<br>
+                        Email: info@samtuit.uz
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h6>Havolalar</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">SamTUIT Rasmiy sayti</a></li>
+                        <li><a href="#">Talabalar portali</a></li>
+                        <li><a href="#">Elektron kutubxona</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2025 SamTUIT. Barcha huquqlar himoyalangan.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

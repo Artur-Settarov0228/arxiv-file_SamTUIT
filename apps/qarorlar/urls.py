@@ -7,7 +7,11 @@ from .views import (QarorlarView,
                     VQarorlar,
                     VQarorQoshish,
                     VQarorView,
-                    VQarorTahrirlash
+                    VQarorTahrirlash,
+                    HQarorlar,
+                    HQarorQoshish,
+                    HQarorView,
+                    HQarorTahrirlash,
 )
 
 app_name = "qarorlar"
@@ -27,4 +31,11 @@ urlpatterns = [
     path("vadd_qaror/", VQarorQoshish.as_view(), name="vqaror_add"),
     path('tahrirlash_v/<int:pk>/', VQarorTahrirlash.as_view(), name='vqaror_edit'),
     path('ochirish_v/<int:pk>/', VQarorView.as_view(), name='vqaror_delete'),
+
+    #hokim qarorlari uchun url lar shu yerda joylashadi
+
+    path("hokim-qarorlari/", HQarorlar.as_view(), name="hokim_qarorlari"),
+    path("hadd_qaror/", HQarorQoshish.as_view(), name="hqaror_add"),
+    path('tahrirlash_h/<int:pk>/', HQarorTahrirlash.as_view(), name='hqaror_edit'),
+    path('ochirish_h/<int:pk>/', HQarorView.as_view(), name='hqaror_delete'),
 ]
