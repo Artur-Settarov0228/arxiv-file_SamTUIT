@@ -277,6 +277,7 @@
 
         /* Card Border Colors */
         .president { 
+            height: 100%;
             border-top: 4px solid #2563eb; 
         }
 
@@ -285,6 +286,7 @@
         }
 
         .vazirlik { 
+            height: 100%;
             border-top: 4px solid #16a34a; 
         }
 
@@ -514,15 +516,17 @@
                 </div>
             </a>
 
-
-            <div class="card vazirlik">
-                <div class="icon">📄</div>
-                <h3>Vazirlik qarori</h3>
-                <p>
-                    Vazirlik va idoralar tomonidan
-                    qabul qilingan rasmiy qarorlar.
-                </p>
-            </div>
+            
+            <a href = "{% url "qarorlar:vazirlik_qarorlari" %}" style = "text-decoration:none">
+                <div class="card vazirlik">
+                    <div class="icon">📄</div>
+                    <h3>Vazirlik qarori</h3>
+                    <p>
+                        Vazirlik va idoralar tomonidan
+                        qabul qilingan rasmiy qarorlar.
+                    </p>
+                </div>
+            </a>
 
             <div class="card viloyat">
                 <div class="icon">🏢</div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prezident Qarorlari - SamTUIT</title>
+    <title>Vazirlik Qarorlari - SamTUIT</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -17,7 +17,8 @@
             --samtuit-blue-light: #004d99;
             --samtuit-emerald: #059669;
             --samtuit-emerald-dark: #047857;
-            --president-blue: #2563eb;
+            --ministry-green: #15803d;        /* Yangi asosiy rang */
+            --ministry-green-dark: #166534;   /* Hover uchun biroz quyuqroq */
             --gray-50: #f9fafb;
             --gray-100: #f3f4f6;
             --gray-200: #e5e7eb;
@@ -116,9 +117,9 @@
             color: var(--samtuit-blue);
         }
 
-        /* Hero Section */
+        /* Hero Section - Vazirlik yashil gradiyenti */
         .hero {
-            background: linear-gradient(135deg, var(--samtuit-blue) 0%, var(--samtuit-blue-light) 100%);
+            background: linear-gradient(135deg, var(--ministry-green) 0%, var(--ministry-green-dark) 100%);
             color: white;
             padding: 3rem 1.5rem;
         }
@@ -224,8 +225,8 @@
 
         .search-input:focus {
             outline: none;
-            border-color: var(--samtuit-blue);
-            box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+            border-color: var(--ministry-green);
+            box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
             background: white;
         }
 
@@ -273,25 +274,12 @@
             height: 16px;
         }
 
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--samtuit-emerald);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 700;
-        }
-
         .add-btn {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1.25rem;
-            background: var(--samtuit-emerald);
+            background: var(--ministry-green);
             color: white;
             border: none;
             border-radius: 0.75rem;
@@ -299,11 +287,11 @@
             font-size: 0.875rem;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+            box-shadow: 0 4px 14px rgba(21, 128, 61, 0.3);
         }
 
         .add-btn:hover {
-            background: var(--samtuit-emerald-dark);
+            background: var(--ministry-green-dark);
             transform: translateY(-1px);
         }
 
@@ -371,7 +359,7 @@
         .card-icon {
             width: 48px;
             height: 48px;
-            background: rgba(37, 99, 235, 0.1);
+            background: rgba(21, 128, 61, 0.1); /* #15803d ning ochroq versiyasi */
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
@@ -381,13 +369,13 @@
         .card-icon svg {
             width: 24px;
             height: 24px;
-            color: var(--president-blue);
+            color: var(--ministry-green);
         }
 
         .card-number {
             font-size: 0.75rem;
             font-weight: 700;
-            color: var(--president-blue);
+            color: var(--ministry-green);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
@@ -406,7 +394,6 @@
             height: 16px;
         }
 
-        /* Sarlavha — to‘liq ko‘rinadi */
         .card-title {
             font-size: 1.125rem;
             font-weight: 700;
@@ -416,9 +403,8 @@
             word-wrap: break-word;
         }
 
-        /* Tavsif — faqat 2 qator ko‘rinadi + scroll */
         .description-container {
-            max-height: 5.5rem; /* Taxminan 2-3 qator */
+            max-height: 5.5rem;
             overflow-y: auto;
             padding-right: 0.5rem;
             margin-bottom: 1.5rem;
@@ -449,7 +435,6 @@
             word-wrap: break-word;
         }
 
-        /* Card Actions — tugmalar */
         .card-actions {
             display: flex;
             justify-content: space-between;
@@ -457,7 +442,8 @@
             margin-top: auto;
             padding-top: 1.5rem;
             border-top: 1px solid var(--gray-200);
-            margin-left:-20px;
+            gap: 10px;
+            margin-left: -14px;
         }
 
         .download-btn {
@@ -465,7 +451,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.65rem 1.1rem;
-            background: var(--samtuit-emerald);
+            background: var(--ministry-green);
             color: white;
             border: none;
             border-radius: 0.75rem;
@@ -476,7 +462,7 @@
         }
 
         .download-btn:hover {
-            background: var(--samtuit-emerald-dark);
+            background: var(--ministry-green-dark);
         }
 
         .download-btn svg {
@@ -514,7 +500,6 @@
         .delete-btn {
             background: var(--red-500);
             color: white;
-            padding:300px, 20px;
         }
 
         .delete-btn:hover {
@@ -695,10 +680,10 @@
                 Orqaga qaytish
             </a>
             <div class="hero-content">
-                <div class="hero-icon">🏛️</div>
+                <div class="hero-icon">📄</div>
                 <div class="hero-text">
-                    <h2>Prezident qarorlari</h2>
-                    <p>O'zbekiston Respublikasi Prezidenti tomonidan qabul qilingan qarorlar</p>
+                    <h2>Vazirlik qarorlari</h2>
+                    <p>Vazirlik tomonidan qabul qilingan qarorlar va hujjatlar</p>
                 </div>
             </div>
         </div>
@@ -717,20 +702,18 @@
 
             <div class="controls-right">
                 <div class="filter-group">
-                    <a href="{% url 'qarorlar:prezident_qarorlari' %}"
+                    <a href="{% url 'qarorlar:vazirlik_qarorlari' %}"
                     class="filter-btn {% if not request.GET.new %}active{% endif %}">
                         Barchasi
                     </a>
 
-                    <a href="{% url 'qarorlar:prezident_qarorlari' %}?new=1"
+                    <a href="{% url 'qarorlar:vazirlik_qarorlari' %}?new=1"
                     class="filter-btn {% if request.GET.new %}active{% endif %}">
                         Yangilari
-                        
                     </a>
                 </div>
 
-
-                <a href="{% url 'qarorlar:qaror_add' %}" style="text-decoration:none">
+                <a href="{% url 'qarorlar:vqaror_add' %}" style="text-decoration:none">
                     <button class="add-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -756,7 +739,7 @@
                         <div class="card-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2-2z"/>
                             </svg>
                         </div>
                         <div>
@@ -772,10 +755,8 @@
                     </div>
                 </div>
 
-                <!-- To'liq sarlavha -->
                 <h3 class="card-title">{{ data.title }}</h3>
 
-                <!-- Tavsif — 2 qator + scroll -->
                 {% if data.description %}
                 <div class="description-container">
                     <p class="card-description">{{ data.description }}</p>
@@ -784,7 +765,6 @@
                 <p class="card-description" style="color: var(--gray-400); font-style: italic;">Tavsif mavjud emas</p>
                 {% endif %}
 
-                <!-- Tugmalar -->
                 <div class="card-actions">
                     <a href="{{ data.file.url }}" class="download-btn" target="_blank" download>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -794,7 +774,7 @@
                         Yuklash
                     </a>
 
-                    <form method="GET" action="{% url 'qarorlar:qaror_edit' data.id %}" style="display:inline;">
+                    <form method="GET" action="{% url 'qarorlar:vqaror_edit' data.id %}" style="display:inline;">
                         <button type="submit" class="edit-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -804,10 +784,9 @@
                         </button>
                     </form>
 
-
-                    <form method="POST" action="{% url 'qarorlar:qaror_delete' data.id %}" style="display:inline;">
+                    <form method="POST" action="{% url 'qarorlar:vqaror_delete' data.id %}" style="display:inline;">
                         {% csrf_token %}
-                        <button type="submit" class="delete-btn" style = "padding:13px;">
+                        <button type="submit" class="delete-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
                                     d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
@@ -850,7 +829,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                &copy; 2024 SamTUIT. Barcha huquqlar himoyalangan.
+                &copy; 2025 SamTUIT. Barcha huquqlar himoyalangan.
             </div>
         </div>
     </footer>

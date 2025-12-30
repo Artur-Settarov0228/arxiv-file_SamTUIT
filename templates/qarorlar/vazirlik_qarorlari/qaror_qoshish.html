@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangi Prezident Qarori Qo'shish - SamTUIT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --samtuit-blue: #003366;
+            --samtuit-blue-light: #004d99;
+            --samtuit-emerald: #059669;
+            --samtuit-emerald-dark: #047857;
+            --president-blue: #2563eb;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: white;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--samtuit-blue);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .logo-text h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--samtuit-blue);
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .main-container {
+            max-width: 768px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .form-label svg {
+            width: 18px;
+            height: 18px;
+            color: var(--gray-500);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border-radius: 0.875rem;
+            border: 1px solid var(--gray-300);
+            font-size: 0.95rem;
+            background: var(--gray-50);
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--samtuit-blue);
+            box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.15);
+            background: white;
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Fayl yuklash maydoni */
+        .file-upload-area {
+            border: 2px dashed var(--gray-300);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            background: var(--gray-50);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--samtuit-blue);
+            background: rgba(0, 51, 102, 0.05);
+        }
+
+        .file-upload-area.dragover {
+            border-color: var(--samtuit-emerald);
+            background: rgba(5, 150, 105, 0.1);
+        }
+
+        .file-upload-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .file-upload-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--president-blue);
+        }
+
+        .file-upload-area span {
+            color: var(--samtuit-blue);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .file-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--gray-100);
+            border-radius: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--gray-700);
+        }
+
+        .file-name {
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .file-size {
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 0.875rem;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-secondary {
+            background: white;
+            border: 1px solid var(--gray-300);
+            color: var(--gray-700);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray-50);
+        }
+
+        .btn-primary {
+            background: var(--samtuit-emerald);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--samtuit-emerald-dark);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-600);
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link:hover {
+            color: var(--samtuit-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="prezident-qarorlari.html" class="logo-section">
+                <div class="logo-icon">S</div>
+                <div class="logo-text">
+                    <h1>SamTUIT</h1>
+                    <p>Qarorlar Portali</p>
+                </div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <a href="{% url "qarorlar:vazirlik_qarorlari" %}" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            Orqaga
+        </a>
+
+        <h1 class="page-title">Yangi Vazirlik Qarori Qo'shish</h1>
+        <p class="page-subtitle">Rasmiy hujjatni tizimga yuklang va ma'lumotlarini to'ldiring</p>
+
+        <div class="form-card">
+            <form id="addDecisionForm" enctype="multipart/form-data" method="POST" action="{% url "qarorlar:vqaror_add" %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"/>
+                        </svg>
+                        Qaror raqami
+                    </label>
+                    <input type="text" class="form-input" id="decisionNumber" name="qaror_num" placeholder="Masalan: PQ-678" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Sarlavha
+                    </label>
+                    <input type="text" class="form-input" id="decisionTitle" name="title" placeholder="Qarorning to'liq nomi" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        Qabul qilingan sana
+                    </label>
+                    <input type="date" class="form-input" id="decisionDate" name="created_at" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+                        </svg>
+                        Qisqacha tavsif
+                    </label>
+                    <textarea class="form-textarea" id="decisionDescription" name="description" placeholder="Qaror mazmuni haqida qisqacha ma'lumot (ixtiyoriy)" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Rasmiy hujjat (PDF, DOC, DOCX)
+                    </label>
+                    <div class="file-upload-area" id="dropArea">
+                        <input type="file" id="fileInput" accept=".pdf,.doc,.docx" name="file" hidden required>
+                        <div class="file-upload-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                        </div>
+                        <p><strong>Faylni bu yerga torting</strong> yoki <span>tanlang</span></p>
+                        <p style="font-size: 0.85rem; color: var(--gray-500); margin-top: 0.5rem;">Faqat PDF, DOC, DOCX formatlari (maks. 10MB)</p>
+                    </div>
+                    <div id="fileInfo" class="file-info" style="display: none;">
+                        <div class="file-name" id="fileName"></div>
+                        <div class="file-size" id="fileSize"></div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                        Bekor qilish
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        Qarorni qo'shish
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileNameEl = document.getElementById('fileName');
+        const fileSizeEl = document.getElementById('fileSize');
+
+        // Butun maydonni bosganda fayl tanlovchi ochiladi
+        dropArea.addEventListener('click', () => fileInput.click());
+
+        // Drag & Drop effektlari
+        ['dragover', 'dragenter'].forEach(event => {
+            dropArea.addEventListener(event, (e) => {
+                e.preventDefault();
+                dropArea.classList.add('dragover');
+            });
+        });
+
+        ['dragleave', 'dragend', 'drop'].forEach(event => {
+            dropArea.addEventListener(event, (e) => {
+                e.preventDefault();
+                dropArea.classList.remove('dragover');
+            });
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                handleFile(e.dataTransfer.files[0]);
+            }
+        });
+
+        // Oddiy fayl tanlash
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            const validTypes = [
+                'application/pdf',
+                'application/msword',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            ];
+            const maxSize = 10 * 1024 * 1024; // 10MB
+
+            if (!validTypes.includes(file.type)) {
+                alert('Faqat PDF, DOC yoki DOCX formatidagi fayllar yuklanishi mumkin!');
+                fileInput.value = '';
+                return;
+            }
+
+            if (file.size > maxSize) {
+                alert('Fayl hajmi 10MB dan oshmasligi kerak!');
+                fileInput.value = '';
+                return;
+            }
+
+            // Fayl ma'lumotlarini ko'rsatish
+            fileNameEl.textContent = file.name;
+            fileSizeEl.textContent = formatFileSize(file.size);
+            fileInfo.style.display = 'block';
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+    </script>
+</body>
+</html>

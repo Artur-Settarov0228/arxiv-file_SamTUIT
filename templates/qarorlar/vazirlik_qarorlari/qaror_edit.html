@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Qarorni tahrirlash - SamTUIT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --blue: #003366;
+            --blue-light: #004d99;
+            --emerald: #059669;
+            --emerald-dark: #047857;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --red: #dc2626;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 44px;
+            height: 44px;
+            background: var(--blue);
+            color: white;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 1.3rem;
+        }
+
+        .header h1 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--blue), var(--blue-light));
+            color: white;
+            padding: 2.5rem 1.5rem;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+        }
+
+        .hero p {
+            opacity: 0.85;
+            margin-top: 0.5rem;
+        }
+
+        /* Form Card */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--gray-200);
+            background: var(--gray-50);
+            font-size: 0.9rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0,51,102,0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .file-info {
+            font-size: 0.8rem;
+            color: var(--gray-600);
+            margin-top: 0.4rem;
+        }
+
+        /* Buttons */
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-save {
+            background: var(--emerald);
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: var(--emerald-dark);
+        }
+
+        .btn-cancel {
+            background: var(--gray-100);
+            color: var(--gray-800);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-cancel:hover {
+            background: var(--gray-200);
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="logo">S</div>
+        <h1>SamTUIT – Qarorlar portali</h1>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-container">
+        <h2>Qarorni tahrirlash</h2>
+        <p>Mavjud qaror ma’lumotlarini yangilang</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="form-card">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Qaror raqami</label>
+                <input type="text" name="qaror_num" value="{{ qaror.qaror_num }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Sarlavha</label>
+                <input type="text" name="title" value="{{ qaror.title }}" required>
+            </div>
+
+            <div class="form-group">
+                <label>Tavsif</label>
+                <textarea name="description">{{ qaror.description }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Qaror sanasi</label>
+                <input type="date"
+                    name="created_at"
+                    value="{{ qaror.created_at|date:'Y-m-d' }}">
+            </div>
+
+
+            <div class="form-group">
+                <label>Yangi fayl yuklash (ixtiyoriy)</label>
+                <input type="file" name="file">
+                {% if qaror.file %}
+                <div class="file-info">
+                    Joriy fayl: <strong>{{ qaror.file.name }}</strong>
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn btn-save">Saqlash</button>
+                <a href="{% url 'qarorlar:qarorlar_bosh' %}" class="btn btn-cancel">Bekor qilish</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
