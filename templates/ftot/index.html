@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>SamTUIT | Talabalar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f4c81 0%, #1565a3 50%, #0b6cb8 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<!-- ================= HEADER / NAVBAR ================= -->
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+        <!-- LOGO -->
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#0f4c81] to-[#0b6cb8]
+                        rounded-xl flex items-center justify-center
+                        text-white font-black text-2xl shadow-lg">
+                S
+            </div>
+            <div>
+                <h1 class="text-xl font-black text-[#0f4c81] leading-none">SamTUIT</h1>
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                    Talabalar bo‘limi
+                </p>
+            </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#" class="font-semibold text-slate-600 hover:text-[#0f4c81]">Asosiy</a>
+            <a href="#" class="font-semibold text-slate-600 hover:text-[#0f4c81]">Qarorlar</a>
+            <a href="#" class="font-semibold text-[#0f4c81] border-b-2 border-[#0f4c81] pb-1">
+                Talabalar
+            </a>
+            <a href="#" class="font-semibold text-slate-600 hover:text-[#0f4c81]">Xodimlar</a>
+            <a href="#" class="font-semibold text-slate-600 hover:text-[#0f4c81]">Bog‘lanish</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero-gradient text-white py-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute top-10 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-emerald-400 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+        <h2 class="text-5xl font-black mb-6 leading-tight">
+            Filialda tahsil olayotgan <br>
+            <span class="bg-gradient-to-r from-emerald-300 to-teal-300
+                         bg-clip-text text-transparent">
+                va bitirgan talabalar
+            </span>
+        </h2>
+        <p class="text-blue-100/80 max-w-2xl mx-auto font-medium">
+            Talabalar haqidagi rasmiy va to‘liq ma’lumotlar bazasi
+        </p>
+    </div>
+</section>
+
+<!-- ================= FILTERS ================= -->
+<section class="max-w-7xl mx-auto px-6 -mt-16 relative z-10">
+    <div class="bg-white rounded-3xl shadow-2xl p-8 grid grid-cols-1 md:grid-cols-5 gap-4">
+
+        <input type="text" placeholder="F.I.Sh bo‘yicha qidirish"
+               class="md:col-span-2 border rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500">
+
+        <select class="border rounded-xl px-4 py-3">
+            <option>Fakultet</option>
+            <option>Kompyuter injiniring</option>
+            <option>Dasturiy injiniring</option>
+        </select>
+
+        <select class="border rounded-xl px-4 py-3">
+            <option>Yo‘nalish</option>
+            <option>Sun’iy intellekt</option>
+            <option>Axborot tizimlari</option>
+        </select>
+
+        <select class="border rounded-xl px-4 py-3">
+            <option>Guruh</option>
+            <option>KI-21-01</option>
+            <option>DI-19-03</option>
+        </select>
+    </div>
+</section>
+
+<!-- ================= ACTION BAR ================= -->
+<section class="max-w-7xl mx-auto px-6 pt-20">
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-black">Talabalar ro‘yxati</h3>
+
+        <a href="{% url "talabalar:talabalar_add" %}"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-xl
+                  bg-gradient-to-r from-emerald-500 to-teal-500
+                  text-white font-black shadow-lg hover:scale-105 transition">
+            ➕ Talaba qo‘shish
+        </a>
+    </div>
+
+    <!-- ================= TABLE ================= -->
+    <div class="bg-white rounded-3xl shadow-xl overflow-x-auto border border-slate-200">
+        <table class="min-w-full text-sm">
+            <thead class="bg-slate-100 uppercase text-xs font-black text-slate-600">
+                <tr>
+                    <th class="px-6 py-4 text-center">№</th>
+                    <th class="px-6 py-4">F.I.Sh</th>
+                    <th class="px-6 py-4">Qabul yili</th>
+                    <th class="px-6 py-4">Fakultet</th>
+                    <th class="px-6 py-4">Yo‘nalish</th>
+                    <th class="px-6 py-4">Guruh</th>
+                    <th class="px-6 py-4">Yil</th>
+                    <th class="px-6 py-4">Holati</th>
+                    <th class="px-6 py-4 text-center">Amallar</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y">
+
+                <tr class="hover:bg-blue-50">
+                    <td class="px-6 py-4 text-center font-bold">1</td>
+                    <td class="px-6 py-4 font-semibold">Aliyev Jahongir Rustamovich</td>
+                    <td class="px-6 py-4">2021</td>
+                    <td class="px-6 py-4">Kompyuter injiniring</td>
+                    <td class="px-6 py-4">Sun’iy intellekt</td>
+                    <td class="px-6 py-4 font-bold text-blue-700">KI-21-01</td>
+                    <td class="px-6 py-4">—</td>
+                    <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full bg-emerald-100
+                                     text-emerald-700 text-xs font-black">
+                            O‘qimoqda
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <div class="flex justify-center gap-2">
+                            <button class="w-9 h-9 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200">✏</button>
+                            <button class="w-9 h-9 bg-red-100 text-red-700 rounded-lg hover:bg-red-200">🗑</button>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-slate-900 text-slate-400 py-6 mt-20 text-center text-xs font-bold">
+    © 2025 SamTUIT | Talabalar bo‘limi
+</footer>
+
+</body>
+</html>

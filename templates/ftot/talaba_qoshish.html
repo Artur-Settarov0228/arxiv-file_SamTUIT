@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>SamTUIT | Talaba qo‘shish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0f4c81 0%, #1565a3 50%, #0b6cb8 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+<!-- HEADER -->
+<nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+        <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-gradient-to-br from-[#0f4c81] to-[#0b6cb8]
+                        rounded-xl flex items-center justify-center
+                        text-white font-black text-2xl shadow-lg">S</div>
+            <div>
+                <h1 class="text-xl font-black text-[#0f4c81] leading-none">SamTUIT</h1>
+                <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                    Talaba qo‘shish
+                </p>
+            </div>
+        </div>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="#" class="font-semibold text-slate-600 hover:text-[#0f4c81]">Asosiy</a>
+            <a href="#" class="font-semibold text-[#0f4c81] border-b-2 border-[#0f4c81] pb-1">Talabalar</a>
+            <a href="#" class="font-semibold text-slate-600 hover:text-[#0f4c81]">Xodimlar</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-gradient text-white py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">Yangi talaba qo‘shish</h2>
+        <p class="text-blue-100/80 font-medium">
+            Talaba haqidagi asosiy ma’lumotlarni kiriting
+        </p>
+    </div>
+</section>
+
+<!-- FORM -->
+<section class="max-w-5xl mx-auto px-6 py-16 -mt-10 relative z-10">
+    <div class="bg-white rounded-3xl shadow-2xl p-10">
+
+        <form method="post" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- CSRF (Django bo‘lsa) -->
+            <!-- {% csrf_token %} -->
+
+            <!-- FISH -->
+            <div class="md:col-span-2">
+                <label class="text-sm font-bold text-slate-600">F.I.Sh</label>
+                <input type="text" name="full_name" required
+                       placeholder="Aliyev Jahongir Rustamovich"
+                       class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3
+                              focus:ring-2 focus:ring-blue-500 outline-none">
+            </div>
+
+            <!-- PASSPORT -->
+            <div>
+                <label class="text-sm font-bold text-slate-600">Passport seriya</label>
+                <input type="text" name="passport"
+                       placeholder="AA1234567"
+                       class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
+            </div>
+
+            <!-- QABUL YILI -->
+            <div>
+                <label class="text-sm font-bold text-slate-600">Qabul yili</label>
+                <input type="number" name="admission_year"
+                       placeholder="2022"
+                       class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
+            </div>
+
+            <!-- FAKULTET -->
+            <div>
+                <label class="text-sm font-bold text-slate-600">Fakultet</label>
+                <select name="faculty"
+                        class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
+                    <option value="">Tanlang</option>
+                    <option value="kompyuter">Kompyuter injiniring</option>
+                    <option value="axborot">Axborot texnologiyalari</option>
+                </select>
+            </div>
+
+            <!-- GURUH -->
+            <div>
+                <label class="text-sm font-bold text-slate-600">Guruh</label>
+                <input type="text" name="group"
+                       placeholder="KI-22-01"
+                       class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
+            </div>
+
+            <!-- HOLATI -->
+            <div class="md:col-span-2">
+                <label class="text-sm font-bold text-slate-600">Holati</label>
+                <select name="status"
+                        class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
+                    <option value="studying">O‘qimoqda</option>
+                    <option value="graduated">Bitirgan</option>
+                    <option value="stopped">To‘xtatgan</option>
+                </select>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="md:col-span-2 flex justify-end gap-4 pt-6">
+                <a href="#"
+                   class="px-6 py-3 rounded-xl border border-slate-300
+                          font-bold hover:bg-slate-100 transition">
+                    Bekor qilish
+                </a>
+
+                <button type="submit"
+                        class="px-8 py-3 rounded-xl font-black text-white
+                               bg-gradient-to-r from-emerald-500 to-teal-500
+                               hover:scale-105 transition shadow-lg">
+                    Saqlash
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs font-bold">
+    © 2025 SamTUIT | Talabalar bo‘limi
+</footer>
+
+</body>
+</html>
