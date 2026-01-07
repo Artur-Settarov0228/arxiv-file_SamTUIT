@@ -55,7 +55,7 @@
 
         <form method="post" class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- CSRF (Django bo‘lsa) -->
-            <!-- {% csrf_token %} -->
+            {% csrf_token %}
 
             <!-- FISH -->
             <div class="md:col-span-2">
@@ -88,8 +88,8 @@
                 <select name="faculty"
                         class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
                     <option value="">Tanlang</option>
-                    <option value="kompyuter">Kompyuter injiniring</option>
-                    <option value="axborot">Axborot texnologiyalari</option>
+                    <option value="Kompyuter">Kompyuter injiniring</option>
+                    <option value="Axborot">Axborot texnologiyalari</option>
                 </select>
             </div>
 
@@ -106,9 +106,9 @@
                 <label class="text-sm font-bold text-slate-600">Holati</label>
                 <select name="status"
                         class="mt-2 w-full border border-slate-300 rounded-xl px-4 py-3">
-                    <option value="studying">O‘qimoqda</option>
-                    <option value="graduated">Bitirgan</option>
-                    <option value="stopped">To‘xtatgan</option>
+                    <option value="O‘qimoqda">O‘qimoqda</option>
+                    <option value="Bitirgan">Bitirgan</option>
+                    <option value="To‘xtatgan">To‘xtatgan</option>
                 </select>
             </div>
 
