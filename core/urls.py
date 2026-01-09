@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("apps.utils.urls")),
     path('royxatdan_otish/', include("apps.login.urls")),
-    path("qarorlar/", include("apps.qarorlar.urls"))
+    path("qarorlar/", include("apps.qarorlar.urls")),
+    path("talabalar/", include("apps.talabalar.urls")),
 
 ]
 
